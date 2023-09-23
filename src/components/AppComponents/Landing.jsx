@@ -1,10 +1,14 @@
 const Landing = () => {
   return (
     <>
-      <section className="flex flex-col px-8 justify-center h-[calc(100vh-135px)] animate-slide-blur">
+      <section className="flex flex-col px-8 justify-center h-[calc(100vh-135px)]">
         <div>
-          <h2 className="text-6xl hover:translate-x-2 transition-transform">Hola,</h2>
-          <h2 className="text-6xl hover:translate-x-2 transition-transform">mi nombre es José.</h2>
+          <h2 className="text-6xl hover:translate-x-2 transition-transform">
+            Hola,
+          </h2>
+          <h2 className="text-6xl hover:translate-x-2 transition-transform">
+            mi nombre es José.
+          </h2>
           <p className=" text-6 my-1">Me gusta desarrollar páginas web</p>
 
           <button className="bg-ea text-black py-3 px-6 mt-9 rounded-xl hover:bg-9 cursor-pointer transition-colors">

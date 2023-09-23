@@ -1,6 +1,6 @@
 const LandingHeader = () => {
   return (
-    <header className="flex justify-between py-5 px-8 items-center w-full sticky">
+    <header className="flex justify-between py-5 px-8 items-center w-full top-0 bg-transparent">
       <img className="w-24" src="/whiteLogo.png" alt="logo" />
 
       <div className="cursor-pointer">
