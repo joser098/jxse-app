@@ -1,6 +1,6 @@
 const Speech = ({ about }) => {
   return (
-    <div className="border-2 bg-black border-3 rounded-lg px-3 h-full mb-3 overflow-auto md:h-auto md:max-w-sm lg:max-w-xl xl:max-w-2xl">
+    <div className="border-2 bg-black border-3 rounded-lg px-3 md:px-9 h-full mb-3 overflow-auto md:h-auto md:max-w-sm lg:max-w-xl xl:max-w-2xl">
       <div className="flex flex-col items-center gap-2 py-2">
         <svg
           className="my-3"
@@ -20,7 +20,7 @@ const Speech = ({ about }) => {
             <path
               fill="var(--ci-primary-color, #fff)"
               d="M425.39,200.035A184.3,184.3,0,0,0,290.812,91.289L317.568,48.48,290.432,31.52,255.127,88.008A184.046,184.046,0,0,0,86.61,200.035a71.978,71.978,0,0,0,0,143.93,184.071,184.071,0,0,0,338.78,0,71.978,71.978,0,0,0,0-143.93Zm27.152,99.975a39.77,39.77,0,0,1-27.76,11.961l-20.725.394-8.113,19.074a152.066,152.066,0,0,1-279.887,0l-8.114-19.074-20.725-.394a39.978,39.978,0,0,1,0-79.942l20.725-.394,8.114-19.074a152.067,152.067,0,0,1,279.887,0l8.113,19.074,20.725.394a39.974,39.974,0,0,1,27.76,67.981Z"
-              class="ci-primary"
+              className="ci-primary"
             ></path>{" "}
             <rect
               width="40"
@@ -28,7 +28,7 @@ const Speech = ({ about }) => {
               x="168"
               y="232"
               fill="var(--ci-primary-color, #fff)"
-              class="ci-primary"
+              className="ci-primary"
             ></rect>{" "}
             <rect
               width="40"
@@ -36,7 +36,7 @@ const Speech = ({ about }) => {
               x="304"
               y="232"
               fill="var(--ci-primary-color, #fff)"
-              class="ci-primary"
+              className="ci-primary"
             ></rect>{" "}
             <path
               fill="var(--ci-primary-color, #fff)"
