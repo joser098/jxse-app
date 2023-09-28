@@ -1,6 +1,7 @@
 import About from "@/components/AppComponents/About";
 import Landing from "@/components/AppComponents/Landing";
 import LandingHeader from "@/components/AppComponents/LandingHeader";
+import Projects from "@/components/AppComponents/Projects";
 
 export default function App() {
   return (
@@ -14,6 +15,10 @@ export default function App() {
 
         <div className="snap-center">
           <About />
+        </div>
+
+        <div className="snap-center">
+          <Projects />
         </div>
       </main>
     </>
