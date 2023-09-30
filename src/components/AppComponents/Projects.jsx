@@ -12,7 +12,6 @@ const Projects = () => {
         const res = await fetch("https://server-nglt-dev.fl0.io/jxse/projects");
         const data = await res.json();
 
-        console.log(data);
         setProjects(data);
       } catch (error) {
         console.log(error);
@@ -33,7 +32,7 @@ const Projects = () => {
   return (
     <section className="h-[calc(100vh-90px)] px-8 py-2 flex flex-col justify-between">
       <header>
-        <h3 className="font-thin text-lg ">- Mis proyectos</h3>
+        <h3 className="font-thin text-lg mb-1">- Mis proyectos</h3>
         {/* <h2 className=" text-3xl my-2 font-semibold">Mis proyectos</h2> */}
       </header>
 
