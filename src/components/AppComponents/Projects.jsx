@@ -7,10 +7,19 @@ const Projects = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    fetch("https://server-nglt-dev.fl0.io/jxse/projects")
-      .then((res) => res.json())
-      .then((res) => setProjects(res))
-      .catch((err) => console.log(err));
+    const getProjects = async () => {
+      try {
+        const res = await fetch("https://server-nglt-dev.fl0.io/jxse/projects");
+        const data = await res.json();
+
+        console.log(data);
+        setProjects(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getProjects();
   }, []);
 
   const handlerNext = () => {
