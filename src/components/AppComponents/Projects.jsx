@@ -14,38 +14,50 @@ const Projects = () => {
   }, []);
 
   const handlerNext = () => {
-    current === projects.length - 1 ? 0 : setCurrent(current + 1);
-    console.log(current);
+    current === projects.length - 1 ? setCurrent(0) : setCurrent(current + 1);
   };
 
-  const handlerPrev = (current, projects) => {
-    current === 0 ? projects.length - 1 : setCurrent(current - 1);
-    console.lo(current);
+  const handlerPrev = () => {
+    current === 0 ? null : setCurrent(current - 1);
   };
 
   return (
-    <section className="h-[calc(100vh-90px)] px-8 py-4">
-      <h3 className="font-thin ">- Portfolio</h3>
-      <h2 className=" text-3xl my-2 font-semibold">Mis proyectos</h2>
+    <section className="h-[calc(100vh-90px)] px-8 py-2 flex flex-col justify-between">
+      <header>
+        <h3 className="font-thin text-lg ">- Mis proyectos</h3>
+        {/* <h2 className=" text-3xl my-2 font-semibold">Mis proyectos</h2> */}
+      </header>
 
-      <div className="flex overflow-hidden relative">
-        {projects?.map((project) => {
-          return <ProjectCard key={project._id} project={project} />;
-        })}
+      <div className="relative h-full max-h-[500px] max-w-xs my-1">
+        <div
+          className="flex transition-transform ease-out duration-500 h-full"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {projects?.map((project, index) => {
+            return (
+              <ProjectCard
+                key={project._id}
+                project={project}
+                index={index}
+                current={current}
+              />
+            );
+          })}
+        </div>
       </div>
 
-      <div className="flex justify-center">
-        <button
-          onClick={handlerNext}
-          className=" bg-9 py-2 px-4 rounded-full m-4"
-        >
-          Next
-        </button>
+      <div className="flex justify-center my-2">
         <button
           onClick={handlerPrev}
           className=" bg-9 py-2 px-4 rounded-full m-4"
         >
           Prev
+        </button>
+        <button
+          onClick={handlerNext}
+          className=" bg-9 py-2 px-4 rounded-full m-4"
+        >
+          Next
         </button>
       </div>
     </section>
