@@ -5,7 +5,7 @@ const Skills = ({ skills }) => {
   const [toggle, setToogle] = useState(false);
 
   return (
-    <div className="border-2 bg-black border-3 px-4 pb-4 rounded-lg md:pt-4 md:max-w-lg lg:max-w-3xl">
+    <div className="flex-1 border-2 bg-black border-3 px-4 pb-4 rounded-lg md:pt-4 md:max-w-lg lg:max-w-3xl mb-3 max-h-[600px]">
       <header className="flex justify-evenly py-2 mb-3">
         <h3 className="font-semibold underline text-base md:text-xl">
           {toggle ? "Soft skills" : "Tech skills"}
