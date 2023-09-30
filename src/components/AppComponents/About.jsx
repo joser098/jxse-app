@@ -15,7 +15,7 @@ const About = async () => {
 
   return (
     <section className="h-[calc(100vh-90px)] flex flex-col px-8 md:flex-row md:justify-around gap-5">
-      <div className="">
+      <div className="flex flex-col h-full">
         <Profile profile={profile} />
 
         <Skills skills={skills} />
