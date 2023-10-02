@@ -1,4 +1,5 @@
 import About from "@/components/AppComponents/About";
+import ContactSection from "@/components/AppComponents/ContactSection";
 import Landing from "@/components/AppComponents/Landing";
 import LandingHeader from "@/components/AppComponents/LandingHeader";
 import Projects from "@/components/AppComponents/Projects";
@@ -19,6 +20,10 @@ export default function App() {
 
         <div className="snap-center">
           <Projects />
+        </div>
+
+        <div className="snap-center">
+          <ContactSection />
         </div>
       </main>
     </>
