@@ -2,7 +2,7 @@ const ProjectCard = ({ project, index, current }) => {
   return (
     <div
       className="min-w-fit bg-fa rounded-lg mt-3 mx-5 transition-transform ease-out duration-500 flex flex-col justify-between"
-      style={index == current ? { transform: `scale(1.07)` } : null}
+      style={index == current ? { transform: `scale(1.1)` } : null}
     >
       <div>
         <img
