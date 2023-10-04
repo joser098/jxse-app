@@ -16,10 +16,36 @@ const ContactForm = () => {
     });
   };
 
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      fetch("https://server-nglt-dev.fl0.io/jxse/message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(message),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+
+      setMessage({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <form className="flex flex-col border rounded-lg p-3 max-w-lg bg-black">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col border rounded-lg p-3 max-w-lg bg-black"
+    >
       <fieldset className="border rounded-lg px-3 mb-3">
-        <legend className="text-sm md:text-lg">Nombre:</legend>
+        <legend className="text-xs md:text-lg">Nombre:</legend>
         <input
           className="bg-black w-full mb-2"
           type="text"
@@ -30,7 +56,7 @@ const ContactForm = () => {
       </fieldset>
 
       <fieldset className="border rounded-lg px-3 mb-3 ">
-        <legend className="text-sm md:text-lg">Email:</legend>
+        <legend className="text-xs md:text-lg">Email:</legend>
         <input
           className="bg-black w-full mb-2"
           type="email"
@@ -41,7 +67,7 @@ const ContactForm = () => {
       </fieldset>
 
       <fieldset className="border rounded-lg px-3 mb-3 ">
-        <legend className="text-sm md:text-lg">Mensaje:</legend>
+        <legend className="text-xs md:text-lg">Mensaje:</legend>
         <textarea
           className="bg-black w-full mb-2"
           onChange={handleChangeInput}
@@ -49,7 +75,7 @@ const ContactForm = () => {
           name="message"
           id=""
           cols="30"
-          rows="10"
+          rows="8"
         ></textarea>
       </fieldset>
 
