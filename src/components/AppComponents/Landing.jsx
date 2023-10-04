@@ -9,7 +9,7 @@ const Landing = () => {
           <h2 className="text-6xl hover:translate-x-2 transition-transform">
             mi nombre es José.
           </h2>
-          <p className=" text-6 my-1">Me gusta desarrollar páginas web</p>
+          <p className=" text-6 my-1">¡Ni siquiera sé cómo llegaste aquí, pero bienvenido!</p>
 
           <button className="bg-ea text-black py-3 px-6 mt-9 rounded-xl hover:bg-9 cursor-pointer transition-colors">
             Contacto
