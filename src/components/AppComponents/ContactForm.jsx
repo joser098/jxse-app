@@ -1,81 +1,114 @@
 "use client";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const ContactForm = () => {
-  const [message, setMessage] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setMessage({
-      ...message,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
+  const onSubmit = handleSubmit(async (data) => {
     try {
-      e.preventDefault();
       fetch("https://server-nglt-dev.fl0.io/jxse/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(message),
+        body: JSON.stringify(data),
       })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((response) => response.json())
+        .then((res) => console.log(res));
 
-      setMessage({
-        name: "",
-        email: "",
-        message: "",
-      });
+      reset();
     } catch (error) {
       console.log(error);
     }
-  };
+  });
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       className="flex flex-col border rounded-lg p-3 max-w-lg bg-black"
     >
       <fieldset className="border rounded-lg px-3 mb-3">
-        <legend className="text-xs md:text-lg">Nombre:</legend>
+        <legend className="text-xs md:text-lg">
+          Nombre:{" "}
+          {errors.name && (
+            <span className=" text-red-500 text-xs md:text-sm">
+              {errors.name.message}
+            </span>
+          )}
+        </legend>
         <input
           className="bg-black w-full mb-2"
           type="text"
-          name="name"
-          value={message.name}
-          onChange={handleChangeInput}
+          {...register("name", {
+            required: {
+              value: true,
+              message: "es requerido",
+            },
+            minLength: {
+              value: 3,
+              message: "debe tener minimo tres caracteres",
+            },
+            maxLength: {
+              value: 20,
+              message: "debe tener maximo veinte caracteres",
+            },
+          })}
         />
       </fieldset>
 
       <fieldset className="border rounded-lg px-3 mb-3 ">
-        <legend className="text-xs md:text-lg">Email:</legend>
+        <legend className="text-xs md:text-lg">
+          Email:{" "}
+          {errors.email && (
+            <span className=" text-red-500 text-xs md:text-sm">
+              {errors.email.message}
+            </span>
+          )}
+        </legend>
         <input
           className="bg-black w-full mb-2"
           type="email"
-          name="email"
-          value={message.email}
-          onChange={handleChangeInput}
+          {...register("email", {
+            required: {
+              value: true,
+              message: "es requerido",
+            },
+            pattern: {
+              value: /^\S+@\S+\.\S+$/,
+              message: "no es valido",
+            },
+          })}
         />
       </fieldset>
 
       <fieldset className="border rounded-lg px-3 mb-3 ">
-        <legend className="text-xs md:text-lg">Mensaje:</legend>
+        <legend className="text-xs md:text-lg">
+          Mensaje:{" "}
+          {errors.message && (
+            <span className=" text-red-500 text-xs md:text-sm">
+              {errors.message.message}
+            </span>
+          )}
+        </legend>
         <textarea
           className="bg-black w-full mb-2"
-          onChange={handleChangeInput}
-          value={message.message}
-          name="message"
-          id=""
           cols="30"
           rows="8"
+          {...register("message", {
+            required: {
+              value: true,
+              message: "es requerido",
+            },
+            minLength: {
+              value: 10,
+              message: "Debe tener minimo diez caracteres",
+            },
+          })}
         ></textarea>
       </fieldset>
 
