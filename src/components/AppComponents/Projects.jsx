@@ -30,13 +30,12 @@ const Projects = () => {
   };
 
   return (
-    <section className="h-[calc(100vh-90px)] px-8 py-2 flex flex-col justify-between">
+    <section className="h-full px-8 py-2 flex flex-col justify-between overflow-x-hidden md:px-0">
       <header>
-        <h3 className="font-thin text-lg mb-1 md:text-4xl">- Mis proyectos</h3>
-        {/* <h2 className=" text-3xl my-2 font-semibold">Mis proyectos</h2> */}
+        <h3 className="font-thin text-lg mb-1 md:text-lg">- Portfolio</h3>
       </header>
 
-      <div className="relative h-full max-h-[500px] max-w-xs my-1 lg:translate-x-[calc(100vw/2.8)]">
+      <div className="relative h-full max-h-[500px] max-w-xs my-1 lg:translate-x-[calc(100%/1.15)] mb-8">
         <div
           className="flex transition-transform ease-out duration-500 h-full"
           style={{ transform: `translateX(-${current * 100}%)` }}
@@ -59,13 +58,39 @@ const Projects = () => {
           onClick={handlerPrev}
           className=" bg-1 border border-white p-2 rounded-full m-4"
         >
-          <svg className="with-icon_icon__MHUeb" fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M15 18l-6-6 6-6"/></svg>
+          <svg
+            className="with-icon_icon__MHUeb"
+            fill="none"
+            height="24"
+            shapeRendering="geometricPrecision"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
         </button>
         <button
           onClick={handlerNext}
           className=" bg-1 border border-white p-2 rounded-full m-4"
         >
-          <svg className="with-icon_icon__MHUeb" fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M9 18l6-6-6-6"/></svg>
+          <svg
+            className="with-icon_icon__MHUeb"
+            fill="none"
+            height="24"
+            shapeRendering="geometricPrecision"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </button>
       </div>
     </section>
