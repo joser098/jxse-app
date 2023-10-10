@@ -30,7 +30,7 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex flex-col border rounded-lg p-3 max-w-lg bg-black"
+      className="flex flex-col border rounded-lg p-3 max-w-lg bg-black w-full"
     >
       <fieldset className="border rounded-lg px-3 mb-3">
         <legend className="text-xs md:text-lg">
