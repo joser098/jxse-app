@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Archivo } from "next/font/google";
-import { Analytics } from '@vercel/analytics'
+import { Analytics } from '@vercel/analytics/react'
 
 const archivo = Archivo({ subsets: ["latin"] });
 
