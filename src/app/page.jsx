@@ -7,22 +7,24 @@ import Projects from "@/components/AppComponents/Projects";
 export default function App() {
   return (
     <>
-      <LandingHeader />
+      <main className="w-full h-screen overflow-x-hidden flex flex-col items-center">
+        <header className="w-full max-w-4xl sticky backdrop-blur z-10 top-0">
+          <LandingHeader />
+        </header>
 
-      <main className="snap-y snap-mandatory relative w-full h-[calc(100vh-90px)] overflow-y-auto scroll-smooth overflow-x-hidden p-0">
-        <div className="snap-center">
+        <div className="w-full max-w-4xl mb-32">
           <Landing />
         </div>
 
-        <div className="snap-center">
+        <div className="w-full max-w-4xl mb-32">
           <About />
         </div>
 
-        <div className="snap-center">
+        <div className="w-full max-w-4xl mb-32">
           <Projects />
         </div>
 
-        <div className="snap-center">
+        <div id="contacto" className="w-full max-w-4xl mb-3">
           <ContactSection />
         </div>
       </main>
