@@ -1,6 +1,6 @@
 const Speech = ({ about }) => {
   return (
-    <div className="border-2 bg-black border-3 rounded-lg px-3 md:px-9 h-full mb-3 overflow-auto md:h-auto md:max-w-sm lg:max-w-xl xl:max-w-2xl max-h-[764px]">
+    <div className="border-2 bg-black border-3 rounded-lg px-3 md:px-9 h-full mb-3 overflow-auto md:h-auto md:max-w-sm max-h-[764px]">
       <div className="flex flex-col items-center gap-2 py-2">
         <svg
           className="my-3"

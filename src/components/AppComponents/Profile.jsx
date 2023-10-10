@@ -7,17 +7,13 @@ const Profile = ({ profile }) => {
         className="h-20 rounded-full lg:h-28 border-2 border-3"
       />
       <div className="pl-5">
-        <h1 className=" text-white font-semibold  text-base lg:text-3xl">
+        <h1 className=" text-white font-semibold  text-base md:text-2xl">
           {profile?.name}
         </h1>
-        <h3 className="text-9 italic text-[10px] lg:text-sm">
-          {profile?.headline}
-        </h3>
-        <h3 className="text-9 italic text-[10px] lg:text-sm">
-          {profile?.city}
-        </h3>
+        <h3 className="text-9  text-[10px] md:text-sm">{profile?.headline}</h3>
+        <h3 className="text-9  text-[10px] md:text-sm">{profile?.city}</h3>
 
-        <ul className="flex justify-start lg:justify-between">
+        <ul className="flex justify-start">
           <li>
             <a href="https://github.com/joser098" target="_blank">
               <svg

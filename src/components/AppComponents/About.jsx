@@ -14,7 +14,7 @@ const About = async () => {
   const { skills, about } = await profile;
 
   return (
-    <section className="h-[calc(100vh-90px)] flex flex-col px-8 md:flex-row md:justify-around gap-5">
+    <section className="h-full flex flex-col p-8 md:flex-row md:justify-around gap-5 md:px-0">
       <div className="flex flex-col h-full">
         <Profile profile={profile} />
 
