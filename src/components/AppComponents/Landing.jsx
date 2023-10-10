@@ -1,18 +1,20 @@
 const Landing = () => {
   return (
     <>
-      <section className="flex flex-col px-8 justify-center h-[calc(100vh-135px)]">
+      <section className="flex flex-col px-8 justify-center h-[calc(100vh-119px)] md:px-0">
         <div>
-          <h2 className="text-6xl hover:translate-x-2 transition-transform">
+          <h2 className="text-4xl hover:translate-x-2 transition-transform md:text-5xl">
             Hola,
           </h2>
-          <h2 className="text-6xl hover:translate-x-2 transition-transform">
+          <h2 className="text-4xl hover:translate-x-2 transition-transform md:text-5xl">
             mi nombre es José.
           </h2>
-          <p className=" text-6 my-1">¡Ni siquiera sé cómo llegaste aquí, pero bienvenido!</p>
+          <p className=" text-6 my-1 text-sm md:text-base">
+            ¡No sé cómo llegaste aquí, pero bienvenido!
+          </p>
 
           <button className="bg-ea text-black py-3 px-6 mt-9 rounded-xl hover:bg-9 cursor-pointer transition-colors">
-            Contacto
+            <a href="#contacto">Contacto</a>
           </button>
         </div>
       </section>
