@@ -3,6 +3,7 @@ import ContactSection from "@/components/AppComponents/ContactSection";
 import Landing from "@/components/AppComponents/Landing";
 import LandingHeader from "@/components/AppComponents/LandingHeader";
 import Projects from "@/components/AppComponents/Projects";
+import SideBar from "@/components/AppComponents/SideBar";
 
 export default function App() {
   return (
@@ -11,6 +12,10 @@ export default function App() {
         <header className="w-full max-w-4xl sticky backdrop-blur z-10 top-0">
           <LandingHeader />
         </header>
+
+        <div className="w-full max-w-4xl">
+          <SideBar />
+        </div>
 
         <div className="w-full max-w-4xl mb-32">
           <Landing />
