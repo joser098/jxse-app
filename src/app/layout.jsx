@@ -1,3 +1,4 @@
+import { SideBarProvider } from "@/context/SideBarContext";
 import "./globals.css";
 import { Archivo } from "next/font/google";
 
@@ -11,8 +12,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={archivo.className}>{children}</body>
-    </html>
+    <SideBarProvider>
+      <html lang="en">
+        <body className={archivo.className}>{children}</body>
+      </html>
+    </SideBarProvider>
   );
 }
