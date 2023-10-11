@@ -21,15 +21,15 @@ export default function App() {
           <Landing />
         </div>
 
-        <div className="w-full max-w-4xl mb-32">
+        <div id="about" className="w-full max-w-4xl mb-32">
           <About />
         </div>
 
-        <div className="w-full max-w-4xl mb-32">
+        <div id="projects" className="w-full max-w-4xl mb-32">
           <Projects />
         </div>
 
-        <div id="contacto" className="w-full max-w-4xl mb-3">
+        <div id="contact" className="w-full max-w-4xl mb-3">
           <ContactSection />
         </div>
       </main>
