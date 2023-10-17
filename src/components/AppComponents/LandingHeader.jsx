@@ -6,7 +6,9 @@ const LandingHeader = () => {
   const { show, setShow } = useContext(SideBarContext);
   return (
     <header className="flex justify-between py-3 px-8 md:px-0 items-center w-full top-0 bg-transparent">
-      <img className="w-24" src="/whiteLogo.png" alt="logo" />
+      <a href="/">
+        <img className="w-24" src="/whiteLogo.png" alt="logo" />
+      </a>
 
       <div
         className="cursor-pointer transition-all ease-out"
