@@ -1,5 +1,9 @@
 import LandingHeader from "@/components/AppComponents/LandingHeader";
 
+export const metadata = {
+  title: "Agenda una reunion | Jxse",
+};
+
 export default function Schedule() {
   return (
     <section className="w-full flex flex-col items-center justify-center">
