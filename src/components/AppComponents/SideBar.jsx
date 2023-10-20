@@ -11,7 +11,7 @@ const SideBar = () => {
       className={`w-full px-8 absolute z-[5] md:p-0 max-w-4xl ${
         show
           ? "transition-transform duration-500 ease-in-out transform translate-y-0"
-          : "transition-transform duration-300 ease-in-out transform -translate-y-[13rem]"
+          : "transition-transform duration-300 ease-in-out transform -translate-y-[15rem]"
       }`}
     >
       <div className="bg-ea rounded-b">
@@ -35,6 +35,13 @@ const SideBar = () => {
           onClick={closeNav}
         >
           Contacto
+        </a>
+        <a
+          className="text-1 text-center py-2 cursor-pointer hover:bg-9 block"
+          href="/feedback"
+          onClick={closeNav}
+        >
+          Encuesta
         </a>
       </div>
     </nav>
