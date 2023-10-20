@@ -19,11 +19,19 @@ module.exports = {
       },
       animation: {
         slideInUp: "slideUp 0.5s",
+        slideInLeft1s: "slideLeft .5s",
+        slideInLeft2s: "slideLeft 1s",
+        slideInLeft3s: "slideLeft 1.5s",
+        slideInLeft4s: "slideLeft 1.8s",
       },
       keyframes: {
         slideUp: {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(0%)" },
+        },
+        slideLeft: {
+          "0%": { transform: "translateX(-500px)" },
+          "1000%": { transform: "translateX(0)" },
         },
       },
     },
