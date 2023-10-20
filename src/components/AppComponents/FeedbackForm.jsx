@@ -1,23 +1,64 @@
+"use client";
 import {
   calificationOptions,
   countries,
   itKnowledge,
   satisfactionOptions,
 } from "@/services/constants";
+import { useForm } from "react-hook-form";
 
 const FeedbackForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  const onSubmit = handleSubmit((data) => {
+    // alert(JSON.stringify(data));
+    reset();
+  });
+
   return (
-    <form className="w-full max-w-4xl flex flex-col border rounded-lg bg-black p-3 text-sm md:text-base">
+    <form
+      onSubmit={onSubmit}
+      className="w-full max-w-4xl flex flex-col border rounded-lg bg-black p-3 text-sm md:text-base"
+    >
       <fieldset className="border rounded-lg px-3 mb-3 flex flex-col gap-3 py-2">
         <legend>Algunos datos</legend>
         <label className="cursor-pointer">
           Edad:
-          <input className="rounded mx-2 w-10" type="number" />
+          <input
+            className="rounded mx-2 w-10"
+            type="number"
+            {...register("age", {
+              required: {
+                value: true,
+                message: "Edad es requerido",
+              },
+              minLength: {
+                value: 1,
+              },
+              maxLength: {
+                value: 2,
+              },
+            })}
+          />
         </label>
 
         <label className="cursor-pointer">
           Pais:
-          <select className="rounded mx-2 p-1" name="countries">
+          <select
+            className="rounded mx-2 p-1"
+            name="countries"
+            {...register("country", {
+              required: {
+                value: true,
+                message: "Pais es requerido",
+              },
+            })}
+          >
             {countries.map((country) => {
               return (
                 <option key={country.id} value={country.id}>
@@ -30,7 +71,16 @@ const FeedbackForm = () => {
 
         <label className="cursor-pointer">
           Conocimientos de desarrollo web:
-          <select className="rounded sm:mx-2 p-1 my-1 cursor-pointer" name="it">
+          <select
+            className="rounded sm:mx-2 p-1 my-1 cursor-pointer"
+            name="it"
+            {...register("itLevel", {
+              required: {
+                value: true,
+                message: "Selecciona una opcion",
+              },
+            })}
+          >
             {itKnowledge.map((level) => {
               return (
                 <option key={level.id} value={level.id}>
@@ -49,12 +99,22 @@ const FeedbackForm = () => {
         <div className="flex gap-7 mb-2">
           <label className="bg-3 p-2 flex gap-1 rounded cursor-pointer">
             Si
-            <input type="radio" name="seen" />
+            <input
+              type="radio"
+              name="seenBefore"
+              value="Si"
+              {...register("seen")}
+            />
           </label>
 
           <label className="bg-3 p-2 flex gap-1 rounded cursor-pointer">
             No
-            <input type="radio" name="seen" />
+            <input
+              type="radio"
+              name="seenBefore"
+              value="No"
+              {...register("seen")}
+            />
           </label>
         </div>
 
@@ -64,12 +124,32 @@ const FeedbackForm = () => {
           <span className="text-[10px] block">
             (1 siendo la peor puntuación y 10 la mejor)
           </span>
-          <input className="w-full mt-2" type="range" min="1" max="10" />
+          <input
+            className="w-full mt-2"
+            type="range"
+            min="1"
+            max="10"
+            {...register("impressCalification", {
+              required: {
+                value: true,
+                message: "Debes dejar una calificacion",
+              },
+            })}
+          />
         </label>
 
         <label className="mb-3 cursor-pointer">
           ¿Qué opinas sobre el diseño y la navegación de mi portfolio?
-          <select className="rounded sm:mx-2 my-1 block p-1" name="opinion">
+          <select
+            className="rounded sm:mx-2 my-1 block p-1"
+            name="opinion"
+            {...register("opinion", {
+              required: {
+                value: true,
+                message: "Tu opinion es importante",
+              },
+            })}
+          >
             {satisfactionOptions.map((option) => {
               return (
                 <option key={option.id} value={option.id}>
@@ -90,6 +170,7 @@ const FeedbackForm = () => {
           <select
             className="rounded sm:mx-2 my-1 block p-1"
             name="califiaction"
+            {...register("projectsCalification")}
           >
             {calificationOptions.map((calification) => {
               return (
@@ -109,6 +190,7 @@ const FeedbackForm = () => {
             cols="10"
             rows="5"
             placeholder="Respuesta"
+            {...register("relevant")}
           ></textarea>
         </label>
 
@@ -120,6 +202,7 @@ const FeedbackForm = () => {
             cols="10"
             rows="5"
             placeholder="Respuesta"
+            {...register("improveOrFeature")}
           ></textarea>
         </label>
       </fieldset>
@@ -134,6 +217,7 @@ const FeedbackForm = () => {
             cols="10"
             rows="5"
             placeholder="Respuesta"
+            {...register("suggestions")}
           ></textarea>
         </label>
 
