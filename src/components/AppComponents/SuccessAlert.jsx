@@ -1,6 +1,6 @@
-const SuccessAlert = () => {
+const SuccessAlert = ({ title, description }) => {
   return (
-    <dialog className="absolute flex items-start md:items-center top-20 bg-green-200 rounded-lg p-3 w-72 max-w-3xl mb-3 md:w-full animate-slideInUp">
+    <dialog className="fixed flex items-start md:items-center bottom-1 right-2 bg-green-200 rounded-lg p-3 w-72 max-w-3xl mb-3 md:w-full animate-slideDown">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
@@ -16,12 +16,9 @@ const SuccessAlert = () => {
       </svg>
       <div className="flex flex-col ml-1 md:ml-2">
         <h3 className="text-base text-green-950 md:text-lg font-semibold">
-          Mensaje enviado con éxito!
+          {title}
         </h3>
-        <p className="text-xs md:text-sm text-green-800 mt-1">
-          Se ha enviado un correo con información detallada a la dirección que
-          has proporcionado.
-        </p>
+        <p className="text-xs md:text-sm text-green-800 mt-1">{description}</p>
       </div>
     </dialog>
   );
