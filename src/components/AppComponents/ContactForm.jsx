@@ -1,10 +1,9 @@
 "use client";
+import { useAlerts } from "@/hooks/useAlerts";
 import { useForm } from "react-hook-form";
-import SuccessAlert from "./SuccessAlert";
-import { useState } from "react";
 
 const ContactForm = () => {
-  const [success, setSuccess] = useState(false);
+  const { render, renderAlert, SuccessAlert } = useAlerts();
 
   const {
     register,
@@ -26,11 +25,7 @@ const ContactForm = () => {
         .then((res) => console.log(res));
 
       reset();
-
-      setSuccess(true);
-      setTimeout(() => {
-        setSuccess(false);
-      }, 8000);
+      renderAlert();
     } catch (error) {
       console.log(error);
     }
@@ -128,7 +123,12 @@ const ContactForm = () => {
           </button>
         </fieldset>
       </form>
-      {success && <SuccessAlert/>}
+      {render && (
+        <SuccessAlert
+          title="Mensaje enviado con éxito!"
+          description="Se ha enviado un correo con información detallada a la dirección que has proporcionado."
+        />
+      )}
     </>
   );
 };

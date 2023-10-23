@@ -1,4 +1,5 @@
 "use client";
+import { useAlerts } from "@/hooks/useAlerts";
 import {
   calificationOptions,
   countries,
@@ -8,6 +9,8 @@ import {
 import { useForm } from "react-hook-form";
 
 const FeedbackForm = () => {
+  const { render, renderAlert, SuccessAlert } = useAlerts();
+
   const {
     register,
     handleSubmit,
@@ -17,6 +20,7 @@ const FeedbackForm = () => {
 
   const onSubmit = handleSubmit((data) => {
     // alert(JSON.stringify(data));
+    renderAlert();
     reset();
   });
 
@@ -235,6 +239,12 @@ const FeedbackForm = () => {
           Enviar
         </button>
       </fieldset>
+      {render && (
+        <SuccessAlert
+          title="Enviado con éxito!"
+          description="Gracias por tu valiosa opinion."
+        />
+      )}
     </form>
   );
 };
