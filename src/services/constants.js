@@ -1,5 +1,9 @@
 export const countries = [
   {
+    id: 0,
+    name: "Seleccionar una opción",
+  },
+  {
     id: "AR",
     name: "Argentina",
   },
@@ -63,6 +67,10 @@ export const countries = [
 
 export const itKnowledge = [
   {
+    id: 0,
+    description: "Seleccionar una opción",
+  },
+  {
     id: "1/5",
     description: "Absolutamente nada",
   },
@@ -86,6 +94,10 @@ export const itKnowledge = [
 
 export const satisfactionOptions = [
   {
+    id: 0,
+    description: "Seleccionar una opción",
+  },
+  {
     id: "MS",
     description: "Muy satisfactorio",
   },
@@ -108,6 +120,10 @@ export const satisfactionOptions = [
 ];
 
 export const calificationOptions = [
+  {
+    id: 0,
+    description: "Seleccionar una opción",
+  },
   {
     id: "MB",
     description: "Muy bueno",
