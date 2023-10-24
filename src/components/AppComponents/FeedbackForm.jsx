@@ -44,7 +44,7 @@ const FeedbackForm = () => {
       className="w-full max-w-4xl flex flex-col border rounded-lg bg-black p-3 text-sm md:text-base"
     >
       <fieldset className="border rounded-lg px-3 mb-3 flex flex-col gap-3 py-2">
-        <legend>Algunos datos</legend>
+        <legend>Algunos datos*</legend>
         <label className="cursor-pointer">
           Edad:
           <input
@@ -63,17 +63,27 @@ const FeedbackForm = () => {
               },
             })}
           />
+          {errors.age && (
+            <span className="block sm:inline text-red-500 text-xs md:text-sm">
+              {errors.age.message}
+            </span>
+          )}
         </label>
 
         <label className="cursor-pointer">
-          Pais:
+          País:
           <select
             className="rounded mx-2 p-1"
             name="countries"
             {...register("country", {
               required: {
                 value: true,
-                message: "Pais es requerido",
+                message: "Selecciona un país",
+              },
+              validate: {
+                valueSelected: (value) => {
+                  return value !== "0" || "Selecciona un país";
+                },
               },
             })}
           >
@@ -85,6 +95,11 @@ const FeedbackForm = () => {
               );
             })}
           </select>
+          {errors.country && (
+            <span className="block sm:inline text-red-500 text-xs md:text-sm">
+              {errors.country.message}
+            </span>
+          )}
         </label>
 
         <label className="cursor-pointer">
@@ -95,7 +110,12 @@ const FeedbackForm = () => {
             {...register("itLevel", {
               required: {
                 value: true,
-                message: "Selecciona una opcion",
+                message: "Selecciona una opción",
+              },
+              validate: {
+                valueSelected: (value) => {
+                  return value !== "0" || "Selecciona una opción";
+                },
               },
             })}
           >
@@ -107,21 +127,31 @@ const FeedbackForm = () => {
               );
             })}
           </select>
+          {errors.itLevel && (
+            <span className="block sm:inline text-red-500 text-xs md:text-sm">
+              {errors.itLevel.message}
+            </span>
+          )}
         </label>
       </fieldset>
 
       <fieldset className="border rounded-lg px-3 mb-3 flex flex-col gap-3 py-2">
-        <legend>Portfolio</legend>
+        <legend>Portfolio*</legend>
         <span>¿Has visitado mi portfolio anteriormente?</span>
 
-        <div className="flex gap-7 mb-2">
+        <div className="flex items-center gap-7 mb-2">
           <label className="bg-3 p-2 flex gap-1 rounded cursor-pointer">
             Si
             <input
               type="radio"
               name="seenBefore"
               value="Si"
-              {...register("seen")}
+              {...register("seen", {
+                required: {
+                  value: true,
+                  message: "Selecciona una opción",
+                },
+              })}
             />
           </label>
 
@@ -134,6 +164,11 @@ const FeedbackForm = () => {
               {...register("seen")}
             />
           </label>
+          {errors.seen && (
+            <span className="block sm:inline text-red-500 text-xs md:text-sm">
+              {errors.seen.message}
+            </span>
+          )}
         </div>
 
         <label className="my-3 cursor-pointer">
@@ -166,6 +201,11 @@ const FeedbackForm = () => {
                 value: true,
                 message: "Tu opinion es importante",
               },
+              validate: {
+                valueSelected: (value) => {
+                  return value !== "0" || "Tu opinion es importante";
+                },
+              },
             })}
           >
             {satisfactionOptions.map((option) => {
@@ -176,6 +216,11 @@ const FeedbackForm = () => {
               );
             })}
           </select>
+          {errors.opinion && (
+            <span className="block sm:inline text-red-500 text-xs md:text-sm sm:pl-2">
+              {errors.opinion.message}
+            </span>
+          )}
         </label>
       </fieldset>
 
