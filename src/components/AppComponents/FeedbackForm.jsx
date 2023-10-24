@@ -18,10 +18,24 @@ const FeedbackForm = () => {
     reset,
   } = useForm();
 
-  const onSubmit = handleSubmit((data) => {
-    // alert(JSON.stringify(data));
-    renderAlert();
-    reset();
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const response = await fetch(
+        "https://server-nglt-dev.fl0.io/jxse/survey",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      renderAlert();
+      reset();
+    } catch (error) {
+      console.error(error);
+    }
   });
 
   return (
