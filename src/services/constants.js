@@ -111,7 +111,7 @@ export const satisfactionOptions = [
   },
   {
     id: "I",
-    description: "nsatisfactorio",
+    description: "Insatisfactorio",
   },
   {
     id: "MI",
