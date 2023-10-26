@@ -6,21 +6,18 @@ import {
   itKnowledge,
   satisfactionOptions,
 } from "@/services/constants";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
 const FeedbackForm = () => {
   const { render, renderAlert, SuccessAlert } = useAlerts();
-  
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-    getValues
+    control,
   } = useForm();
-
-  // const [calification, setCalification] = useState(getValues('impressCalification'));
 
   const onSubmit = handleSubmit(async (data) => {
     try {
@@ -175,39 +172,47 @@ const FeedbackForm = () => {
           )}
         </div>
 
-        <label className="my-3 cursor-pointer">
-          En una escala del 1 al 10, ¿cómo calificarías la impresión general de
-          mi portfolio?{" "}
-          <span className="text-[10px] block">
-            (1 siendo la peor puntuación y 10 la mejor)
-          </span>
-          <input
-            className="w-full mt-2"
-            type="range"
-            min="1"
-            max="10"
-            {...register("impressCalification", {
-              required: {
-                value: true,
-                message: "Debes dejar una calificacion",
-              },
-            })}
-          />
-          {/* <p>
-            Tu puntuación:{" "}
-            <span
-              className={
-                calification < 4
-                  ? "text-red-400"
-                  : calification >= 4 && calification < 8
-                  ? "text-orange-500"
-                  : "text-green-500"
-              }
-            >
-              {calification}
-            </span>
-          </p> */}
-        </label>
+        <Controller
+          name="impressCalification"
+          control={control}
+          defaultValue={5}
+          rules={{
+            required: {
+              value: true,
+              message: "Debes dejar una calificacion",
+            },
+          }}
+          render={({ field }) => (
+            <label className="my-3 cursor-pointer">
+              En una escala del 1 al 10, ¿cómo calificarías la impresión general
+              de mi portfolio?{" "}
+              <span className="text-[10px] block">
+                (1 siendo la peor puntuación y 10 la mejor)
+              </span>
+              <input
+                className="w-full mt-2"
+                type="range"
+                min="1"
+                max="10"
+                {...field}
+              />
+              <p>
+                Tu puntuación:{" "}
+                <span
+                  className={
+                    field.value < 4
+                      ? "text-red-700"
+                      : field.value >= 4 && field.value < 8
+                      ? "text-orange-500"
+                      : "text-green-700"
+                  }
+                >
+                  {field.value}
+                </span>
+              </p>
+            </label>
+          )}
+        />
 
         <label className="mb-3 cursor-pointer">
           ¿Qué opinas sobre el diseño y la navegación de mi portfolio?
