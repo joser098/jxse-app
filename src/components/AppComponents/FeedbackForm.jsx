@@ -6,17 +6,21 @@ import {
   itKnowledge,
   satisfactionOptions,
 } from "@/services/constants";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const FeedbackForm = () => {
   const { render, renderAlert, SuccessAlert } = useAlerts();
-
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    getValues
   } = useForm();
+
+  // const [calification, setCalification] = useState(getValues('impressCalification'));
 
   const onSubmit = handleSubmit(async (data) => {
     try {
@@ -189,6 +193,20 @@ const FeedbackForm = () => {
               },
             })}
           />
+          {/* <p>
+            Tu puntuación:{" "}
+            <span
+              className={
+                calification < 4
+                  ? "text-red-400"
+                  : calification >= 4 && calification < 8
+                  ? "text-orange-500"
+                  : "text-green-500"
+              }
+            >
+              {calification}
+            </span>
+          </p> */}
         </label>
 
         <label className="mb-3 cursor-pointer">
