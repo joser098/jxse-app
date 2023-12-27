@@ -14,7 +14,7 @@ const ContactForm = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      fetch("https://server-nglt-dev.fl0.io/jxse/message", {
+      fetch("https://server-dev-pxfe.4.us-1.fl0.io/jxse/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

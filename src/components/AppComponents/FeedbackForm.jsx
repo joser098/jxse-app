@@ -22,7 +22,7 @@ const FeedbackForm = () => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       const response = await fetch(
-        "https://server-nglt-dev.fl0.io/jxse/survey",
+        "https://server-dev-pxfe.4.us-1.fl0.io/jxse/survey",
         {
           method: "POST",
           headers: {
