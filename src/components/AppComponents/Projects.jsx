@@ -9,7 +9,7 @@ const Projects = () => {
   useEffect(() => {
     const getProjects = async () => {
       try {
-        const res = await fetch("https://server-nglt-dev.fl0.io/jxse/projects");
+        const res = await fetch("https://server-dev-pxfe.4.us-1.fl0.io/jxse/projects");
         const data = await res.json();
 
         setProjects(data);
