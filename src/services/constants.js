@@ -1,3 +1,5 @@
+export const URL_BASE = 'https://jxse-server.onrender.com';
+
 export const countries = [
   {
     id: 0,

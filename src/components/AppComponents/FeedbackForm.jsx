@@ -1,6 +1,7 @@
 "use client";
 import { useAlerts } from "@/hooks/useAlerts";
 import {
+  URL_BASE,
   calificationOptions,
   countries,
   itKnowledge,
@@ -22,7 +23,7 @@ const FeedbackForm = () => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       const response = await fetch(
-        "https://server-dev-pxfe.4.us-1.fl0.io/jxse/survey",
+        `${URL_BASE}/jxse/survey`,
         {
           method: "POST",
           headers: {

@@ -1,5 +1,6 @@
 "use client";
 import { useAlerts } from "@/hooks/useAlerts";
+import { URL_BASE } from "@/services/constants";
 import { useForm } from "react-hook-form";
 
 const ContactForm = () => {
@@ -14,7 +15,7 @@ const ContactForm = () => {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      fetch("https://server-dev-pxfe.4.us-1.fl0.io/jxse/message", {
+      fetch(`${URL_BASE}/jxse/message`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

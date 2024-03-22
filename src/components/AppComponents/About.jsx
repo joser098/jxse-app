@@ -1,9 +1,10 @@
+import { URL_BASE } from "@/services/constants";
 import Profile from "./Profile";
 import Skills from "./Skills";
 import Speech from "./Speech";
 
 const getProfile = async () => {
-  const res = await fetch("https://server-nglt-dev.fl0.io/jxse/profile");
+  const res = await fetch(`${URL_BASE}/jxse/profile`);
   const data = await res.json();
 
   return data;
